@@ -11,9 +11,9 @@ function TaskPage(){
     const description = searchParams.get("description");
     
     return(
-    <div className="h-screen w-screen bg-slate-500 p-6 flex justify-center">
+    <div className="h-screen w-screen bg-slate-500 p-6">
        
-        <div className="w-[500px] space-y-4">
+        <div className="w-[500px] mx-auto space-y-4">
             <div className="flex justify-center relative mb-6"> {/* O "relative" e o "absolute" funciona com um elemento HTML sobrepondo o outro, isso quer dizer que o objeto que tem o valor "absolute" ficará a frente do "relative", dando o efeito de camada/sobreposição. Se quiser ver isso basta remover a classe "left-0" do elemento "button" que tem a classe "absolute". */}
                 <button className="absolute left-0 top-0 bottom-0 text-slate-100" onClick={()=> navigate(-1)/** Se eu não criar a arrow function para chamar o navigate e passar ele direto para o onClick, o navigate será sempre executado assim que o return for reenderizado, e não é isso que queremos, pois queremos que ele execute somente quando o button for clicado. */ }> <ChevronLeftIcon/> </button>
                 <Title> 

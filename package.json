@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    /* a chave "build:" com o valor "vite build" prepara a aplicação pra ir pra produção gerando uma pasta called "dist" com meu index.HTML e meus assets.*/
     "lint": "eslint .",
     "preview": "vite preview"
   },
