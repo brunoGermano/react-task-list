@@ -1,4 +1,4 @@
-import { ChevronRightIcon, TrashIcon } from "lucide-react";
+import { CheckIcon, ChevronRightIcon, TrashIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 
@@ -25,16 +25,18 @@ function Tasks(props) {
           <li key={task.id} className="flex gap-2">
             <button
               /* Pra colocar código js dentro de tag HTML deve-se colocar as "{}", por isso depois do "className" coloquei, já que queria usar o template string do js que é a interpolação de strings. A parte "task.isCompleted && "line-through" coloca a segunda parte depois do operador "&&" na string do template string caso a propriedade "isCompleted" seja true. */
-              className={`bg-slate-400 text-left w-full text-white p-2 rounded-md ${
-                // task.isCompleted && "line-through"
-                task.isCompleted ? "line-through" : ""
+              className={`bg-slate-400 text-left w-full flex items-center gap-2 text-white p-2 rounded-md ${
+                task.isCompleted && "line-through"
+                // task.isCompleted ? "line-through" : ""
               }`}
               onClick={() => {
                 props.onTaskClick(task.id);
               }}
             >
+              {task.isCompleted && <CheckIcon />} {/* Posso inserir o "<CheckIcon />" com o and operator "&&" */}
+              { /*task.isCompleted ? <CheckIcon /> : null */ }{/* Posso inserir o "<CheckIcon />" com o operadorTernário "? x : y" O que não daria pra usar seria uma "if" clause porque estou dentro do return do meu componente JSX chamado "Tasks" */}
               {task.title}
-              {task.isCompleted ? " COMPLETA" : " INCOMPLETA"}
+              {/* {task.isCompleted ? " COMPLETA" : " INCOMPLETA"} */}
             </button>
 
             <Button onClick={()=> onSeeDetailsClick(task)/* Como eu quero passar parâmetros para a função "onSeeDetailsClick", eu preciso usar uma "arrow function" para chamar ela. */}> 
